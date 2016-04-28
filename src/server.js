@@ -5,7 +5,6 @@ morgan  = require('morgan'),
 bodyParser = require('body-parser'),
 companies = require('./routes/companies');
 
-
 app.use(morgan('short'))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded());
@@ -13,7 +12,6 @@ app.use(morgan('short'))
   var router = express.Router();
 
   companies(router);
-
 
   app.use('/', router);
   app.listen(8000);
