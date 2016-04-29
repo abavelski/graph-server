@@ -106,7 +106,7 @@ var StockHistory = function() {
                 Host: "ichart.yahoo.com"
               }
         };
-        http.get(url, function(res) {
+        http.get(options, function(res) {
             console.log('response received');
             if ( res.statusCode!==200) {
                 myCallback(Error("Error: "+res.statusCode));

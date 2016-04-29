@@ -44,6 +44,9 @@ router.route('/api/history/:symbol').get(function(req, res) {
 	} else if (period==='6m') {
 			startDate.setMonth(startDate.getMonth()-6);
 			history = history.from(startDate).to(new Date()).daily();
+	} else if (period==='ytd') {
+			startDate.setFullYear(new Date().getFullYear(), 0, 1)
+			history = history.from(startDate).to(new Date()).daily();
 	}
 
 	history.getHistory(function(err, data){
