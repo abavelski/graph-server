@@ -26,7 +26,7 @@ module.exports = function(opt, cb) {
       cb(null, resp);
   };
 
-    var url = "http://chartapi.finance.yahoo.com/instrument/1.0/"+opt.symbol+"/chartdata;type=quote;range="+opt.period+"/csv"
+    var url = "http://chartapi.finance.yahoo.com/instrument/7.0/"+opt.symbol+"/chartdata;type=quote;range="+opt.period+"/csv"
 
     var proxy = {
           host: "osia",
