@@ -11,6 +11,8 @@ var compare = function(a,b) {
 
 module.exports = function(opt, cb) {
 
+  opt.symbol = opt.symbol.replace('+', '.');
+
   var transformData = function(data) {
     var resp = [];
       for (var i=1;i<data.length; i++) {

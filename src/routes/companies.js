@@ -31,8 +31,8 @@ router.route('/api/history/:symbol').get(function(req, res) {
 		var startDate = new Date();
 		if (period==='1y') {
 				startDate.setFullYear(startDate.getFullYear()-1);
-		} else if (period==='5y') {
-				startDate.setFullYear(startDate.getFullYear()-5);
+		} else if (period==='3y') {
+				startDate.setFullYear(startDate.getFullYear()-3);
 				granularity = 'w';
 		} else if (period==='all') {
 				startDate.setFullYear(startDate.getFullYear()-30);
