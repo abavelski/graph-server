@@ -34,7 +34,7 @@ module.exports = function(opt, cb) {
           port: 3128,
           path: url
     };
-    http.get(proxy, function(res) {
+    http.get(url, function(res) {
 
         if ( res.statusCode!==200) {
             cb(Error("Error: "+res.statusCode));

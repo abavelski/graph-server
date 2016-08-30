@@ -48,7 +48,7 @@ module.exports = function(opt, cb) {
             Host: "ichart.yahoo.com"
           }
     };
-    http.get(proxy, function(res) {
+    http.get(url, function(res) {
 
         if ( res.statusCode!==200) {
             cb(Error("Error: "+res.statusCode));
