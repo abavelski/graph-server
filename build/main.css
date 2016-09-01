@@ -1,0 +1,50 @@
+body {
+  font-size: 13px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.content {
+	margin: 8px
+}
+
+.axis path,
+.axis line {
+  opacity: 0.1;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.area {
+  opacity: 0.1;
+  fill: steelblue;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.up-day path {
+    fill: none;
+    stroke-width: 1px;
+    stroke: green;
+}
+
+.down-day path {
+    fill: none;
+    stroke-width: 1px;
+    stroke: red;
+}
+.up-day rect {
+    fill: green;
+    stroke-width: 1px;
+    stroke: green;
+}
+
+.down-day rect {
+    fill: red;
+    stroke-width: 1px;
+    stroke: red;
+}

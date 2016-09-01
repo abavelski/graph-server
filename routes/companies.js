@@ -1,6 +1,7 @@
 
 var stockHistory = require("./stockHistory");
 var intraday = require("./intraday");
+var path = require('path');
 
 
 module.exports = function(router) {
@@ -14,12 +15,17 @@ router.route('/api/history/:symbol').get(function(req, res) {
 	}
 
 	if (period==='1d' || period==='1w') {
-		if (period==='1w') period='5d';
+		var granularity = '1min';
+		if (period==='1w') {
+			granularity='5min';
+			period='5d';
+		}
 		intraday({period: period, symbol: symbol}, function(err, data) {
 			if (err) {
 				res.status(500).json({error: 'Internal error'}).end();
 			} else {
 				res.json({
+					granularity: granularity,
 					period: ppp,
 					points : data
 				}).end();
@@ -30,7 +36,7 @@ router.route('/api/history/:symbol').get(function(req, res) {
 		var granularity = 'd';
 		var startDate = new Date();
 		if (period==='1y' || period==='1m' || period==='3m' || period==='6m' || period==='ytd') {
-				startDate.setFullYear(startDate.getFullYear()-3);
+				startDate.setFullYear(startDate.getFullYear()-2);
 		} else if (period==='3y') {
 				startDate.setFullYear(startDate.getFullYear()-5);
 				granularity = 'w';
@@ -61,6 +67,10 @@ router.route('/api/history/:symbol').get(function(req, res) {
 
 
 
+});
+
+router.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '/../build/index.html'));
 });
 
 };
